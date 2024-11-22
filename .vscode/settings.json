@@ -1,0 +1,73 @@
+{
+    "C_Cpp.default.systemIncludePath": [
+        "${config:vexrobotics.vexcode.Cpp.Sdk.Home}\\V5\\V5_20240223_11_00_00\\vexv5\\gcc\\include\\sys"
+    ],
+    "files.associations": {
+        "turnpidtwo": "cpp",
+        "new": "cpp",
+        "string": "cpp",
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "cctype": "cpp",
+        "chrono": "cpp",
+        "clocale": "cpp",
+        "cmath": "cpp",
+        "cstdarg": "cpp",
+        "cstdint": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "ctime": "cpp",
+        "cwchar": "cpp",
+        "cwctype": "cpp",
+        "exception": "cpp",
+        "initializer_list": "cpp",
+        "iosfwd": "cpp",
+        "istream": "cpp",
+        "limits": "cpp",
+        "ostream": "cpp",
+        "ratio": "cpp",
+        "streambuf": "cpp",
+        "type_traits": "cpp",
+        "typeinfo": "cpp"
+    },
+    "editor.tokenColorCustomizations": {
+        "comments": "#fff585",
+        "textMateRules": [
+            {
+                "scope": "vexlog.error",
+                "settings": {
+                    "foreground": "#ff3232"
+                }
+            },
+            {
+                "scope": "vexlog.warning",
+                "settings": {
+                    "foreground": "#FFFF00"
+                }
+            },
+            {
+                "scope": "vexlog.normal",
+                "settings": {
+                    "foreground": "#4479ff"
+                }
+            },
+            {
+                "scope": "vexlog.battery",
+                "settings": {
+                    "foreground": "#4479ff"
+                }
+            },
+            {
+                "scope": "vexlog.power",
+                "settings": {
+                    "foreground": "#00a000"
+                }
+            }
+        ]
+    },
+    "editor.semanticTokenColorCustomizations": {
+        
+    },
+    "workbench.colorCustomizations": {},
+    "editor.fontFamily": "'Comic Mono'"
+}
