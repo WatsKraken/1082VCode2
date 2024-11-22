@@ -1,6 +1,8 @@
 #pragma once
 #include "vex.h"
-#define yap(yappanese) std:cout<<yappanese<<std::endl;
+#include <iostream>
+#define yap(text) std::cout<<text<<std::endl;
+#define printToConsole(text) std::cout<<text<<std::endl;
 
 inline extern vex::brain Brain = vex::brain();
 inline extern vex::motor Fl = vex::motor(vex::PORT6, vex::ratio18_1, true);

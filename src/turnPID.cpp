@@ -59,9 +59,6 @@ public:
 
         error = target - position;
 
-        if (error = prev) {
-            
-        } 
 
         if (error > 180) {
             error -= 360;
