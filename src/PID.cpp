@@ -3,7 +3,7 @@
 #include "motors.h"
 #include "PID.h"
 
-using namespace PID;
+using namespace _PID;
 class PID
 {
 
@@ -54,7 +54,7 @@ public:
         else return false;
     }
 
-    void runPID(double targetVal)
+    void runPID(double targetVal, double timeLimit)
     {
         reset();
         target = targetVal;
@@ -67,7 +67,7 @@ public:
             if (isStopped()) { break; }
             _time += 20;
             vex::wait(20, vex::msec);
-            if (_time >= 2000) {
+            if (_time >= timeLimit * 1000) {
                 break;
             }
         }

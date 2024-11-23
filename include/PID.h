@@ -3,7 +3,7 @@
 #include "vex.h"
 #include "motors.h"
 
-namespace PID {
+namespace _PID {
     double position;
     double error;
     double i; // integral
@@ -19,7 +19,7 @@ namespace PID {
     bool errorChanging = true;
 }
 
-using namespace PID;
+using namespace _PID;
 class PID
 {
     
@@ -69,7 +69,7 @@ public:
         else return false;
     }
 
-    void runPID(double targetVal)
+    void runPID(double targetVal, double timeLimit)
     {
         reset();
         target = targetVal;
@@ -82,7 +82,7 @@ public:
             if (isStopped()) { break; }
             _time += 20;
             vex::wait(20, vex::msec);
-            if (_time >= 2000) {
+            if (_time >= timeLimit * 1000) {
                 break;
             }
         }
