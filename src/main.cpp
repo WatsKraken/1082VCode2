@@ -297,11 +297,11 @@ void usercontrol(void) {
     }
 
     if (Controller1.ButtonL1.pressing()) {
-      fisher.spin(forward, 100, pct);
+      ladyBrown.spin(forward, 100, pct);
     } else if (Controller1.ButtonL2.pressing()) {
-      fisher.spin(reverse, 100, pct);
+      ladyBrown.spin(reverse, 100, pct);
     } else {
-      fisher.stop(brake);
+      ladyBrown.stop(brake);
     }
     // ........................................................................
     // Insert user code here. This is where you use the joystick values to

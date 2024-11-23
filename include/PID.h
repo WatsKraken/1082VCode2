@@ -33,7 +33,7 @@ public:
 
     void update()
     {
-        _position = ((fabs(Ml.position(vex::turns)) + fabs(Mr.position(vex::turns))) / 2.0) * M_PI * 3.25;
+        _position = ((fabs(Tl.position(vex::turns)) + fabs(Tr.position(vex::turns))) / 2.0) * M_PI * 3.25;
 
  
         error = target - _position;
