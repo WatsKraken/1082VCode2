@@ -4,14 +4,11 @@
 #include "PID.h"
 
 using namespace _PID;
-class PID
-{
 
-public:
-    PID() {
+    PID::PID() {
     }
 
-    void reset()
+    void PID::reset()
     {
         error = 0;
         prev = 0;
@@ -22,7 +19,7 @@ public:
         position = 0;
     }
 
-    void update()
+    void PID::update()
     {
         position = ((abs(Tl.position(vex::turns)) + abs(Tr.position(vex::turns))) / 2.0) * M_PI * 3.25;
         error = target - position;
@@ -49,12 +46,12 @@ public:
         
     }
 
-    bool isStopped() {
+    bool PID::isStopped() {
         if ((Left.velocity(vex::rpm) + Right.velocity(vex::rpm))/2 <= 1 || ((error == prev) && (Left.velocity(vex::rpm) + Right.velocity(vex::rpm))/2 <= 1)) return true;
         else return false;
     }
 
-    void runPID(double targetVal, double timeLimit)
+    void PID::runPID(double targetVal, double timeLimit)
     {
         reset();
         target = targetVal;
@@ -74,4 +71,3 @@ public:
 
         vex::wait(20, vex::msec);
     }
-};
