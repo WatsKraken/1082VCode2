@@ -3,6 +3,7 @@
 #include <iostream>
 #define yap(text) std::cout<<text<<std::endl;
 #define printToConsole(text) std::cout<<text<<std::endl;
+#define BOOM(text) std::cout<<text<<BOOM<<std::endl;
 
 inline extern vex::brain Brain = vex::brain();
 inline extern vex::motor Fl = vex::motor(vex::PORT6, vex::ratio18_1, true); 
