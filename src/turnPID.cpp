@@ -36,29 +36,10 @@ public:
 
     void tpUpdate()
     {
-        //position = (((Left.position(vex::turns) + Right.position(vex::turns)) / 2.0) * M_PI * 3.25) * 9.29 /* Drivebase width in inches (wheel to wheel)*/ * 2 * M_PI /*2π inches is the length of the full circle*/ / 360;
-        // position = ((abs(Mr.position(vex::turns) * M_PI * 3.25) + abs(Ml.position(vex::turns) * M_PI * 3.25))/2) * 9.29 * M_PI / 360;
         position = InertialSensor.heading();
 
-        //Brain.Screen.print(position);
-        //Brain.Screen.clearLine();
-
-        // std::cout<<position<<std::endl;
-        // std::cout<<InertialSensor.heading()<<std::endl;
-
-        /*std::cout<<Mr.position(vex::turns)<<std::endl;
-        std::cout<<Ml.position(vex::turns)<<std::endl;
-        Brain.Screen.print(Mr.position(vex::turns));
-        //wait(1, sec);
-        Brain.Screen.print(Ml.position(vex::turns));
-        //wait(2, sec);
-        Brain.Screen.clearLine();
-
-        std::cout<<(abs(Mr.position(vex::turns)) + abs(Ml.position(vex::turns)))<<std::endl;
-        std::cout<<(abs(Mr.position(vex::turns) * M_PI * 3.25) + abs(Ml.position(vex::turns) * M_PI * 3.25))<<std::endl;*/
 
         error = target - position;
-
 
         if (error > 180) {
             error -= 360;
@@ -85,7 +66,7 @@ public:
         {
             i = (i / fabs(i)) * 100;
         }
-
+        
 
     }
 
@@ -106,13 +87,12 @@ public:
             Left.spin(vex::forward, (kp * error) + (ki * i) - (kd * d), vex::pct);
             Right.spin(vex::reverse, (kp * error) + (ki * i)  - (kd * d), vex::pct);
             // tpUpdate();
-            
 
-            /*if (position > 360) {
+            if (position > 360) {
                 position -= 360;
             } else if (position < -360) {
                 position += 360;
-            }*/
+            }
             
             time += 20;
             vex::wait(20, vex::msec);
@@ -125,7 +105,7 @@ public:
         std::cout<<"done :)"<<std::endl;
 
         vex::wait(20, vex::msec);
-     
+        
     }
 };
 
