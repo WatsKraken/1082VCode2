@@ -1,22 +1,9 @@
 #include "cmath"
 #include "vex.h"
 #include "motors.h"
-
+#include "PID.h"
 class PID
 {
-private:
-    double _position;
-    double error;
-    double i; // integral
-    double d;
-    int target;
-    double kp = 0.5;
-    double ki = 0;
-    double kd = 0.1;
-    double drive;
-    void runPID();
-    double prev;
-    bool errorChanging = true;
 
 public:
     PID() {
@@ -29,12 +16,14 @@ public:
         i = 0;
         Left.resetPosition();
         Right.resetPosition();
+        time = 0;
+        position = 0;
     }
 
     void update()
     {
-        _position = ((abs(Ml.position(vex::turns)) + abs(Mr.position(vex::turns))) / 2.0) * M_PI * 3.25;
-        error = target - _position;
+        position = ((abs(Ml.position(vex::turns)) + abs(Mr.position(vex::turns))) / 2.0) * M_PI * 3.25;
+        error = target - position;
 
         if (error = prev) {
             printToConsole("The error is not changing. PID stopping.");
@@ -65,8 +54,7 @@ public:
 
     void runPID(double targetVal)
     {
-        int time = 0;
-        _position = 0;
+        reset();
         target = targetVal;
         while (abs(_position - target) > 0.2 && errorChanging) {
             update();
